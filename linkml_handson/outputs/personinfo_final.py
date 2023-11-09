@@ -27,7 +27,9 @@ class ConfiguredBaseModel(WeakRefShimBaseModel,
 
 
 class GenderType(str, Enum):
-    
+    """
+    Allowed gender types.
+    """
     
     man = "man"
     
@@ -39,39 +41,39 @@ class GenderType(str, Enum):
 
 class NamedThing(ConfiguredBaseModel):
     """
-    A generic grouping for any identifiable entity
+    A generic grouping for any identifiable entity.
     """
-    id: str = Field(...)
-    name: Optional[str] = Field(None)
+    id: str = Field(..., description="""A unique identifier.""")
+    name: str = Field(..., description="""A full legal name.""")
     
 
 class HasAliases(ConfiguredBaseModel):
     """
     A mixin applied to any class that can have aliases/alternateNames
     """
-    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names""")
+    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names.""")
     
 
 class Person(HasAliases, NamedThing):
     """
     A person (alive, dead, undead, or fictional).
     """
-    primary_email: Optional[str] = Field(None)
-    birth_date: Optional[str] = Field(None)
-    age_in_years: Optional[int] = Field(None, ge=0, le=200)
-    gender: Optional[GenderType] = Field(None)
-    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names""")
-    id: str = Field(...)
-    name: Optional[str] = Field(None)
+    primary_email: Optional[str] = Field(None, description="""The primary email used by the entity.""")
+    birth_date: Optional[str] = Field(None, description="""Day of birth""")
+    age_in_years: int = Field(..., description="""Age in years.""", ge=0, le=200)
+    gender: Optional[GenderType] = Field(None, description="""Gender provided by the person.""")
+    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names.""")
+    id: str = Field(..., description="""A unique identifier.""")
+    name: str = Field(..., description="""A full legal name.""")
     
 
 class Organization(HasAliases, NamedThing):
     """
     An organization such as a company or university
     """
-    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names""")
-    id: str = Field(...)
-    name: Optional[str] = Field(None)
+    aliases: Optional[List[str]] = Field(default_factory=list, description="""Alternate names.""")
+    id: str = Field(..., description="""A unique identifier.""")
+    name: str = Field(..., description="""A full legal name.""")
     
 
 

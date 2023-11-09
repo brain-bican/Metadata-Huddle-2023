@@ -1,7 +1,7 @@
 {
     "$defs": {
         "GenderType": {
-            "description": "",
+            "description": "Allowed gender types.",
             "enum": [
                 "man",
                 "woman",
@@ -12,17 +12,20 @@
         },
         "NamedThing": {
             "additionalProperties": false,
-            "description": "A generic grouping for any identifiable entity",
+            "description": "A generic grouping for any identifiable entity.",
             "properties": {
                 "id": {
+                    "description": "A unique identifier.",
                     "type": "string"
                 },
                 "name": {
+                    "description": "A full legal name.",
                     "type": "string"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "name"
             ],
             "title": "NamedThing",
             "type": "object"
@@ -32,21 +35,24 @@
             "description": "An organization such as a company or university",
             "properties": {
                 "aliases": {
-                    "description": "Alternate names",
+                    "description": "Alternate names.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "id": {
+                    "description": "A unique identifier.",
                     "type": "string"
                 },
                 "name": {
+                    "description": "A full legal name.",
                     "type": "string"
                 }
             },
             "required": [
-                "id"
+                "id",
+                "name"
             ],
             "title": "Organization",
             "type": "object"
@@ -56,36 +62,44 @@
             "description": "A person (alive, dead, undead, or fictional).",
             "properties": {
                 "age_in_years": {
+                    "description": "Age in years.",
                     "maximum": 200,
                     "minimum": 0,
                     "type": "integer"
                 },
                 "aliases": {
-                    "description": "Alternate names",
+                    "description": "Alternate names.",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
                 },
                 "birth_date": {
+                    "description": "Day of birth",
                     "type": "string"
                 },
                 "gender": {
-                    "$ref": "#/$defs/GenderType"
+                    "$ref": "#/$defs/GenderType",
+                    "description": "Gender provided by the person."
                 },
                 "id": {
+                    "description": "A unique identifier.",
                     "type": "string"
                 },
                 "name": {
+                    "description": "A full legal name.",
                     "type": "string"
                 },
                 "primary_email": {
+                    "description": "The primary email used by the entity.",
                     "pattern": "^\\S+@[\\S+\\.]+\\S+",
                     "type": "string"
                 }
             },
             "required": [
-                "id"
+                "age_in_years",
+                "id",
+                "name"
             ],
             "title": "Person",
             "type": "object"

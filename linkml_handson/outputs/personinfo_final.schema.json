@@ -1,0 +1,101 @@
+{
+    "$defs": {
+        "GenderType": {
+            "description": "",
+            "enum": [
+                "man",
+                "woman",
+                "other"
+            ],
+            "title": "GenderType",
+            "type": "string"
+        },
+        "NamedThing": {
+            "additionalProperties": false,
+            "description": "A generic grouping for any identifiable entity",
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "NamedThing",
+            "type": "object"
+        },
+        "Organization": {
+            "additionalProperties": false,
+            "description": "An organization such as a company or university",
+            "properties": {
+                "aliases": {
+                    "description": "Alternate names",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Organization",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "A person (alive, dead, undead, or fictional).",
+            "properties": {
+                "age_in_years": {
+                    "maximum": 200,
+                    "minimum": 0,
+                    "type": "integer"
+                },
+                "aliases": {
+                    "description": "Alternate names",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "birth_date": {
+                    "type": "string"
+                },
+                "gender": {
+                    "$ref": "#/$defs/GenderType"
+                },
+                "id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "primary_email": {
+                    "pattern": "^\\S+@[\\S+\\.]+\\S+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Person",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/linkml/examples/personinfo",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "personinfo",
+    "type": "object",
+    "version": null
+}

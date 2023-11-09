@@ -43,4 +43,12 @@ In order to convert the schema to different formats you can run linkml generator
   gen-erdiagram personinfo.yaml > outputs/personinfo.md
   ```
 
+### Validating the data
+
+Once you have schema, you can validate an example of data using `linkml-validate`:
+
+```
+linkml-validate --schema personinfo.yaml --target-class Person person-data.yaml
+```
+
 

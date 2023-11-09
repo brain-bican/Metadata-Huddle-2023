@@ -1,0 +1,170 @@
+id: https://w3id.org/linkml/examples/atlaskb_data
+name: atlaskb_data
+description: Data table models corresponding to atlaskb model
+  
+license: https://creativecommons.org/publicdomain/zero/1.0/
+default_curi_maps:
+  - semweb_context
+imports:
+  - linkml:types
+  - kbmodel
+prefixes:
+  schema: http://schema.org/
+  linkml: https://w3id.org/linkml/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+  aiod: http://ontology.brain-map.org/aio-dis#
+  biolink: https://w3id.org/biolink/vocab/
+  bican: https://identifiers.org/brain-bican/vocab/
+  spdx: http://spdx.org/rdf/terms#
+  ncbi: https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&id=
+  NCBIAssembly: https://www.ncbi.nlm.nih.gov/assembly/
+  prov: http://www.w3.org/ns/prov#
+  NCBITaxon: https://www.ncbi.nlm.nih.gov/Taxonomy
+default_prefix: aiod
+default_range: string
+
+classes:
+
+  #
+  # CSV Schemas
+  #
+
+  amplified_cdna_csv:
+    description: schema for amplified_cdna.csv
+    slots:
+      - amplified_cdna_local_name
+      - barcoded_cell_sample_local_name
+
+  barcoded_cell_sample_component_csv:
+    description: schema for barcoded_cell_sample_component.csv
+    slots:
+      - barcoded_cell_sample_local_name
+      - enriched_cell_sample_local_name
+
+  dissociated_cell_sample_component_csv:
+    description: schema for dissociated_cell_sample_component.csv
+    slots:
+      - dissociated_cell_sample_local_name
+      - tissue_sample_local_name
+
+  enriched_cell_sample_component_csv:
+    description: schema for enriched_cell_sample_component.csv
+    slots:
+      - enriched_cell_sample_local_name
+      - dissociated_cell_sample_local_name
+
+  library_csv:
+    description: schema for library.csv
+    slots:
+      - library_local_name
+      - amplified_cdna_local_name
+
+  library_pool_component_csv:
+    description: schema for library_pool_component.csv
+    slots:
+      - library_pool_local_name
+      - library_local_name
+
+
+  #
+  # Controlled Vocabulary Definitions
+  #
+
+  dissociated_cell_sample_local_name_cv:
+    description: dissociated cell sample local names controlled vocabulary
+    slots:
+      - dissociated_cell_sample_local_name
+      - dissociated_cell_sample
+
+  enriched_cell_sample_local_name_cv:
+    description: enriched cell sample local names controlled vocabulary
+    slots:
+      - enriched_cell_sample_local_name
+      - enriched_cell_sample
+
+  tissue_sample_local_name_cv:
+    description: tissue sample local names controlled vocabulary
+    slots:
+      - tissue_sample_local_name
+      - tissue_sample
+
+  amplified_cdna_local_name_cv:
+    description: amplified cdna local name controlled vocabulary
+    slots:
+      - amplified_cdna_local_name
+      - amplified_cdna
+
+  barcoded_cell_sample_local_name_cv:
+    description: barcoded cell sample local name controlled vocabulary
+    slots:
+      - barcoded_cell_sample_local_name
+      - barcoded_cell_sample
+
+  library_local_name_cv:
+    description: library local name controlled vocabulary
+    slots:
+      - library_local_name
+      - library
+
+  library_pool_local_name_cv:
+    description: library pool local name controlled vocabulary
+    slots:
+      - library_pool_local_name
+      - library_pool
+
+slots:
+    # dissociated cell sample
+    dissociated_cell_sample_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    dissociated_cell_sample:
+        slot_uri: IAO:0000136  # is about
+        range: dissociated cell sample
+
+    # enriched cell sample
+    enriched_cell_sample_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    enriched_cell_sample:
+        slot_uri: IAO:0000136  # is about
+        range: enriched cell sample
+
+    # tissue sample
+    tissue_sample_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    tissue_sample:
+        slot_uri: IAO:0000136  # is about
+        range: tissue sample
+
+    # amplified cdna
+    amplified_cdna_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    amplified_cdna:
+        slot_uri: IAO:0000136  # is about
+        range: amplified cdna
+
+    # barcoded cell sample
+    barcoded_cell_sample_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    barcoded_cell_sample:
+        slot_uri: IAO:0000136  # is about
+        range: barcoded cell sample
+
+    # barcoded cell sample
+    library_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    library:
+        slot_uri: IAO:0000136  # is about
+        range: library
+
+    # barcoded cell sample
+    library_pool_local_name:
+        slot_uri: OBI:0002815  # has representation
+        range: string
+    library_pool:
+        slot_uri: IAO:0000136  # is about
+        range: library
